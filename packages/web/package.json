@@ -1,0 +1,32 @@
+{
+  "name": "@apps/web",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "run-p type-check \"build-only {@}\" --",
+    "preview": "vite preview",
+    "test:unit": "vitest",
+    "test:e2e": "start-server-and-test preview http://localhost:4173 'cypress run --e2e'",
+    "test:e2e:dev": "start-server-and-test 'vite dev --port 4173' http://localhost:4173 'cypress open --e2e'",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "format": "prettier --write src/"
+  },
+  "dependencies": {
+    "@element-plus/theme-chalk": "workspace:*",
+    "browserslist": "^4.22.1",
+    "compare-versions": "^6.1.0",
+    "element-plus": "workspace:*",
+    "local-pkg": "^0.5.0",
+    "postcss-preset-env": "^9.3.0",
+    "tailwindcss": "^3.3.5",
+    "vite-plugin-html": "^3.2.0"
+  },
+  "devDependencies": {
+    "unplugin-auto-import": "^0.16.7",
+    "unplugin-vue-components": "^0.25.2",
+    "vite-plugin-compression": "^0.5.1"
+  }
+}
